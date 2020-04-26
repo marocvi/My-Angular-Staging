@@ -6,4 +6,4 @@ build website:
     - ng build
   artifacts:
     paths:
-      - public
+      - .dist
