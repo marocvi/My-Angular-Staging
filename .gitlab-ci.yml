@@ -1,3 +1,7 @@
+stages:
+  - build
+  - test
+  - deploy
 build website:
   stage: build
   image: node
@@ -20,5 +24,9 @@ test website:
     - npm install
     - npm install -g @angular/cli
     - ng serve &
-    - sleep 3
-    - curl "http://localhost:4200" | tac | tac | grep -q "MyApp"
+deploy to github:
+  stage: deploy
+  script:
+    - npm install lite-server --save-dev
+    - ng build --watch
+    - lite-server --baseDir="dist/MyApp"
