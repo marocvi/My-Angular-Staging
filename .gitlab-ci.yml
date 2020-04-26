@@ -21,4 +21,4 @@ test website:
     - npm install -g @angular/cli
     - ng serve &
     - sleep 3
-    - curl "http://localhost:4200" | grep -q "MyApp"
+    - curl "http://localhost:4200" | tac | tac | grep -q "MyApp"
