@@ -19,5 +19,5 @@ test website:
   script:
     - npm install
     - npm install -g @angular/cli
-    - ng serve
+    - ng serve &
     - curl "http://localhost:4200" | grep -q "MyApp"
