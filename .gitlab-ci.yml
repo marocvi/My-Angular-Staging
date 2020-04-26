@@ -32,5 +32,6 @@ deploy to github:
   script:
     - npm install
     - npm install lite-server --save-dev
+    - npm install -g @angular/cli
     - ng build --watch
     - lite-server --baseDir="dist/MyApp"
