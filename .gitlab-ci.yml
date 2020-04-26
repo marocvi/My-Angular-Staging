@@ -6,9 +6,11 @@ build website:
   stage: build
   image: node
   script:
+    - echo $CI_COMMIT_SHORT_SHA
     - npm install
     - npm install -g @angular/cli
     - ng build
+    - sed "s/MyApp/MyApp-$CI_COMMIT_SHORT_SHA/" ./dist/MyApp/index.html
   artifacts:
     paths:
       - ./dist
@@ -26,7 +28,9 @@ test website:
     - ng serve &
 deploy to github:
   stage: deploy
+  image: node
   script:
+    - npm install
     - npm install lite-server --save-dev
     - ng build --watch
     - lite-server --baseDir="dist/MyApp"
