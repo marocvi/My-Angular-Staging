@@ -41,12 +41,13 @@ deploy to staging:
     url: $STAGING_DOMAIN
   image: node
   script:
-    - npm install
-    - npm install -g @angular/cli
-    - ng build --prod --output-path docs/My-Angular-Staging --base-href /
     - git config --global user.email "Nick@example.com"
     - git config --global user.name "Nick"
     - git remote add github https://github.com/marocvi/My-Angular-Staging.git
+    - git pull github master
+    - npm install
+    - npm install -g @angular/cli
+    - ng build --prod --output-path docs/My-Angular-Staging --base-href /
     - git add .
     - git commit -m 'Add docs'
     - git push github master
@@ -57,12 +58,13 @@ deploy to production:
     url: $PRODUCTION_DOMAIN
   image: node
   script:
-    - npm install
-    - npm install -g @angular/cli
-    - ng build --prod --output-path docs/My-Angular --base-href /
     - git config --global user.email "Nick@example.com"
     - git config --global user.name "Nick"
     - git remote add github https://github.com/marocvi/My-Angular.git
+    - git pull github master
+    - npm install
+    - npm install -g @angular/cli
+    - ng build --prod --output-path docs/My-Angular --base-href /
     - git add .
     - git commit -m 'Add docs'
     - git push github master
