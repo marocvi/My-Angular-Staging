@@ -31,7 +31,8 @@ deploy to github:
   image: node
   script:
     - npm install
-    - npm install lite-server --save-dev
     - npm install -g @angular/cli
-    - ng build --watch
-    - lite-server --baseDir="dist/MyApp"
+    - ng build --prod --output-path docs/My-Angular --base-href /
+    - git add docs
+    - git commit 'Add docs'
+    - git push github master
