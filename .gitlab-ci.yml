@@ -2,6 +2,10 @@ stages:
   - build
   - test
   - deploy
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
 build website:
   stage: build
   image: node
@@ -33,6 +37,8 @@ deploy to github:
     - npm install
     - npm install -g @angular/cli
     - ng build --prod --output-path docs/My-Angular --base-href /
+    - git config --global user.email "Nick@example.com"
+    - git config --global user.name "Nick"
     - git add docs
     - git commit -m 'Add docs'
     - git push github master
