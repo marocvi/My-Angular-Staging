@@ -34,5 +34,5 @@ deploy to github:
     - npm install -g @angular/cli
     - ng build --prod --output-path docs/My-Angular --base-href /
     - git add docs
-    - git commit 'Add docs'
+    - git commit -m 'Add docs'
     - git push github master
