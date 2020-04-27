@@ -10,30 +10,30 @@ cache:
 variables:
   STAGING_DOMAIN: https://marocvi.github.io/My-Angular-Staging
   PRODUCTION_DOMAIN: https://marocvi.github.io/My-Angular/
-build website:
-  stage: build
-  image: node
-  script:
-    - echo $CI_COMMIT_SHORT_SHA
-    - npm install
-    - npm install -g @angular/cli
-    - ng build
-    - sed "s/MyApp/MyApp-$CI_COMMIT_SHORT_SHA/" ./dist/MyApp/index.html
-  artifacts:
-    paths:
-      - ./dist
-test artifact:
-  image: alpine
-  stage: test
-  script:
-    - grep -q 'Hello' ./dist/MyApp/index.html
-test website:
-  image: node
-  stage: test
-  script:
-    - npm install
-    - npm install -g @angular/cli
-    - ng serve &
+#build website:
+#  stage: build
+#  image: node
+#  script:
+#    - echo $CI_COMMIT_SHORT_SHA
+#    - npm install
+#    - npm install -g @angular/cli
+#    - ng build
+#    - sed "s/MyApp/MyApp-$CI_COMMIT_SHORT_SHA/" ./dist/MyApp/index.html
+#  artifacts:
+#    paths:
+#      - ./dist
+#test artifact:
+#  image: alpine
+#  stage: test
+#  script:
+#    - grep -q 'Hello' ./dist/MyApp/index.html
+#test website:
+#  image: node
+#  stage: test
+#  script:
+#    - npm install
+#    - npm install -g @angular/cli
+#    - ng serve &
 deploy to staging:
   stage: deploy staging
   environment:
@@ -46,6 +46,7 @@ deploy to staging:
     - git config --global user.name "Nick"
     - git remote add github https://github.com/marocvi/My-Angular-Staging.git
     - git pull github master
+    - git show-ref
     - npm install
     - npm install -g @angular/cli
     - ng build --prod --output-path docs/My-Angular-Staging --base-href /
