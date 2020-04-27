@@ -41,6 +41,7 @@ deploy to staging:
     url: $STAGING_DOMAIN
   image: node
   script:
+    - git init
     - git config --global user.email "Nick@example.com"
     - git config --global user.name "Nick"
     - git remote add github https://github.com/marocvi/My-Angular-Staging.git
@@ -56,8 +57,11 @@ deploy to production:
   environment:
     name: production
     url: $PRODUCTION_DOMAIN
+  when: manual
+  allow_failure: true
   image: node
   script:
+    - git init
     - git config --global user.email "Nick@example.com"
     - git config --global user.name "Nick"
     - git remote add github https://github.com/marocvi/My-Angular.git
