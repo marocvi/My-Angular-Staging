@@ -51,7 +51,7 @@ deploy to staging:
     - ng build --prod --output-path docs/My-Angular-Staging --base-href /
     - git add .
     - git commit -m 'Add docs'
-    - git push github master
+    - git push -u github master
 deploy to production:
   stage: deploy production
   environment:
@@ -71,4 +71,4 @@ deploy to production:
     - ng build --prod --output-path docs/My-Angular --base-href /
     - git add .
     - git commit -m 'Add docs'
-    - git push github master
+    - git push -u github master
