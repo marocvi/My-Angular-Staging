@@ -18,7 +18,7 @@ test artifact:
   image: alpine
   stage: test
   script:
-    - grep -q 'MyApp' ./dist/MyApp/index.html
+    - grep -q 'Hello' ./dist/MyApp/index.html
 test website:
   image: node
   stage: test
