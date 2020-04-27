@@ -1,7 +1,8 @@
 stages:
   - build
   - test
-  - deploy
+  - deploy staging
+  - deploy production
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
@@ -30,8 +31,27 @@ test website:
     - npm install
     - npm install -g @angular/cli
     - ng serve &
-deploy to github:
-  stage: deploy
+deploy to staging:
+  stage: deploy staging
+  environment:
+    name: staging
+    url: https://marocvi.github.io/My-Angular-Staging
+  image: node
+  script:
+    - npm install
+    - npm install -g @angular/cli
+    - ng build --prod --output-path docs/My-Angular-Staging --base-href /
+    - git config --global user.email "Nick@example.com"
+    - git config --global user.name "Nick"
+    - git remote add github https://github.com/marocvi/My-Angular-Staging.git
+    - git add .
+    - git commit -m 'Add docs'
+    - git push github master
+deploy to production:
+  stage: deploy production
+  environment:
+    name: production
+    url: https://marocvi.github.io/My-Angular/
   image: node
   script:
     - npm install
@@ -39,6 +59,7 @@ deploy to github:
     - ng build --prod --output-path docs/My-Angular --base-href /
     - git config --global user.email "Nick@example.com"
     - git config --global user.name "Nick"
-    - git add docs
+    - git remote add github https://github.com/marocvi/My-Angular.git
+    - git add .
     - git commit -m 'Add docs'
     - git push github master
