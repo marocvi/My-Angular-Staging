@@ -41,17 +41,16 @@ deploy to staging:
     url: $STAGING_DOMAIN
   image: node
   script:
-    - git init
     - git config --global user.email "Nick@example.com"
     - git config --global user.name "Nick"
     - git remote add github https://github.com/marocvi/My-Angular-Staging.git
-    - git pull github master
-    - git show-ref
     - npm install
     - npm install -g @angular/cli
     - ng build --prod --output-path docs/My-Angular-Staging --base-href /
+    - git status
     - git add .
     - git commit -m 'Add docs'
+    - git branch
     - git push -u github master
 deploy to production:
   stage: deploy production
