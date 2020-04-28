@@ -34,26 +34,26 @@ variables:
 #    - npm install
 #    - npm install -g @angular/cli
 #    - ng serve &
-deploy to staging:
-  stage: deploy staging
-  environment:
-    name: staging
-    url: $STAGING_DOMAIN
-  image: node
-  only:
-    - master
-  script:
-    - git config --global user.email "Nick@example.com"
-    - git config --global user.name "Nick"
-    - git branch master
-    - git checkout master
-    - git remote add github https://marocvi:Ahaiproo1*@github.com/marocvi/My-Angular-Staging.git
-    - npm install
-    - npm install -g @angular/cli
-    - ng build --prod --output-path docs/My-Angular-Staging --base-href /
-    - git add .
-    - git commit -m 'Add docs'
-    - git push -u github master
+#deploy to staging:
+#  stage: deploy staging
+#  environment:
+#    name: staging
+#    url: $STAGING_DOMAIN
+#  image: node
+#  only:
+#    - master
+#  script:
+#    - git config --global user.email "Nick@example.com"
+#    - git config --global user.name "Nick"
+#    - git branch master
+#    - git checkout master
+#    - git remote add github https://marocvi:Ahaiproo1*@github.com/marocvi/My-Angular-Staging.git
+#    - npm install
+#    - npm install -g @angular/cli
+#    - ng build --prod --output-path docs/My-Angular-Staging --base-href /
+#    - git add .
+#    - git commit -m 'Add docs'
+#    - git push -u github master
 deploy to production:
   stage: deploy production
   environment:
