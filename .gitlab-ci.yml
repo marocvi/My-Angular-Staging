@@ -53,8 +53,8 @@ deploy to staging:
     - git commit -m 'Add docs'
     - git log
     - git show-ref
-    - git branch
-    - ls -a
+    - git branch master
+    - git chekout master
     - git push -u github master
 deploy to production:
   stage: deploy production
