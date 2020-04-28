@@ -50,6 +50,7 @@ deploy to staging:
     - git status
     - git add .
     - git commit -m 'Add docs'
+    - git show-ref
     - git branch
     - git push -u github master
 deploy to production:
