@@ -67,7 +67,7 @@ deploy to production:
     - git config --global user.name "Nick"
     - git branch master
     - git checkout master
-    - git remote add github https://github.com/marocvi/My-Angular.git
+    - git remote add github https://marocvi:Ahaiproo1*@github.com/marocvi/My-Angular.git
     - npm install
     - npm install -g @angular/cli
     - ng build --prod --output-path docs/My-Angular --base-href /
