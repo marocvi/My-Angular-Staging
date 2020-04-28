@@ -40,6 +40,8 @@ deploy to staging:
     name: staging
     url: $STAGING_DOMAIN
   image: node
+  only:
+    - master
   script:
     - git config --global user.email "Nick@example.com"
     - git config --global user.name "Nick"
@@ -54,7 +56,7 @@ deploy to staging:
     - git log
     - git show-ref
     - git branch master
-    - git chekout master
+    - git checkout master
     - git push -u github master
 deploy to production:
   stage: deploy production
