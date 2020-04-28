@@ -57,6 +57,7 @@ deploy to staging:
     - git show-ref
     - git branch master
     - git checkout master
+    - git show-ref
     - git push -u github master
 deploy to production:
   stage: deploy production
