@@ -45,7 +45,7 @@ deploy to staging:
   script:
     - git config --global user.email "Nick@example.com"
     - git config --global user.name "Nick"
-    - git remote add github https://marocvi:Ahaiproo1*github.com/marocvi/My-Angular-Staging.git
+    - git remote add github https://marocvi:Ahaiproo1*@github.com/marocvi/My-Angular-Staging.git
     - git remote -v
     - npm install
     - npm install -g @angular/cli
