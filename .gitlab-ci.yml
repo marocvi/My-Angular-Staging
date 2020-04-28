@@ -51,8 +51,10 @@ deploy to staging:
     - git status
     - git add .
     - git commit -m 'Add docs'
+    - git log
     - git show-ref
     - git branch
+    - ls -a
     - git push -u github master
 deploy to production:
   stage: deploy production
